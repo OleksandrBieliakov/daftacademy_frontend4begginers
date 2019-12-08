@@ -6,35 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./script.js" defer></script>
 </head>
 
 <body>
     <header class="page-header">
-        <h1 class="page-brand">
-            <img src="./images/logo.png" alt="6BM logo" />
-        </h1>
-        <nav class="page-navigation">
-            <ul class="page-navigation__items">
-                <li class="page-navigation__item">
-                    <a class="page-navigation__link" href="#home">Home</a>
-                </li>
-                <li class="page-navigation__item">
-                    <a class="page-navigation__link" href="#about">About</a>
-                </li>
-                <li class="page-navigation__item">
-                    <a class="page-navigation__link" href="#concerts">Concerts</a>
-                </li>
-                <li class="page-navigation__item">
-                    <a class="page-navigation__link" href="#video">Video</a>
-                </li>
-                <li class="page-navigation__item">
-                    <a class="page-navigation__link" href="#photos">Photos</a>
-                </li>
-                <li class="page-navigation__item">
-                    <a class="page-navigation__link" href="#contact">Contact</a>
-                </li>
-            </ul>
-        </nav>
+        <button class="hamburger" id="hamburger" type="button">
+            <div class="hamburger__line"></div>
+            <div class="hamburger__line"></div>
+            <div class="hamburger__line"></div>
+        </button>
+        <div class= "page-header__menu" id="menu">
+            <h1 class="page-brand">
+                <img src="./images/logo.png" alt="6BM logo" />
+            </h1>
+            <nav class="page-navigation">
+                <ul class="page-navigation__items">
+                    <li class="page-navigation__item">
+                        <a class="page-navigation__link" href="#home">Home</a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a class="page-navigation__link" href="#about">About</a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a class="page-navigation__link" href="#concerts">Concerts</a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a class="page-navigation__link" href="#video">Video</a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a class="page-navigation__link" href="#photos">Photos</a>
+                    </li>
+                    <li class="page-navigation__item">
+                        <a class="page-navigation__link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main class="page-content">
         <section id="home" class="content-section home-section">
@@ -109,47 +117,55 @@
             <h2 class="content-section__header">Concerts</h2>
             <div class="concerts">
                 <article class="concerts__item">
-                    <img class="concerts__image" src="./images/band02_WiechnikMarcin.jpg"
+                        <img class="concerts__image" srcset="./images/band02_WiechnikMarcin.jpg,
+                        ./images/band02_WiechnikMarcin@2.jpg 2x,
+                        ./images/band02_WiechnikMarcin@3.jpg 3x" src="./images/band02_WiechnikMarcin@3.jpg"
                         alt="Image of band drummer during a concert" />
                     <header class="concerts__info">
                         <div class="concerts__info-base">
                             <p class="concerts__date">20.12.2018</p>
                             <p class="concerts__location">Lublin, klub XXX</p>
                         </div>
-                        <button class="button">Buy a ticket</button>
+                        <button class="button buy" id="buy1">Buy a ticket</button>
                     </header>
                 </article>
                 <article class="concerts__item">
-                    <img class="concerts__image" src="./images/band03_WiechnikMarcin.jpg"
+                        <img class="concerts__image" srcset="./images/band03_WiechnikMarcin.jpg,
+                        ./images/band03_WiechnikMarcin@2.jpg 2x,
+                        ./images/band03_WiechnikMarcin@3.jpg 3x" src="./images/band03_WiechnikMarcin@3.jpg"
                         alt="Image of band vocalist and keyboard player during a concert" />
                     <header class="concerts__info">
                         <div class="concerts__info-base">
                             <p class="concerts__date">20.12.2018</p>
                             <p class="concerts__location">Lublin, klub XXX</p>
                         </div>
-                        <button class="button">Buy a ticket</button>
+                        <button class="button buy" id="buy2">Buy a ticket</button>
                     </header>
                 </article>
                 <article class="concerts__item">
-                    <img class="concerts__image" src="./images/band04_JakubBodys.jpg"
+                        <img class="concerts__image" srcset="./images/band04_JakubBodys.jpg,
+                        ./images/band04_JakubBodys@2.jpg 2x,
+                        ./images/band04_JakubBodys@3.jpg 3x" src="./images/band04_JakubBodys@3.jpg"
                         alt="Image of band keyboard player during a concert" />
                     <header class="concerts__info">
                         <div class="concerts__info-base">
                             <p class="concerts__date">20.12.2018</p>
                             <p class="concerts__location">Lublin, klub XXX</p>
                         </div>
-                        <button class="button">Buy a ticket</button>
+                        <button class="button buy" id="buy3">Buy a ticket</button>
                     </header>
                 </article>
                 <article class="concerts__item">
-                    <img class="concerts__image" src="./images/band05_JakubBodys.jpg"
+                        <img class="concerts__image" srcset="./images/band05_JakubBodys.jpg,
+                        ./images/band05_JakubBodys@2.jpg 2x,
+                        ./images/band05_JakubBodys@3.jpg 3x" src="./images/band05_JakubBodys@3.jpg"
                         alt="Image of band vocalist during a concert" />
                     <header class="concerts__info">
                         <div class="concerts__info-base">
                             <p class="concerts__date">20.12.2018</p>
                             <p class="concerts__location">Lublin, klub XXX</p>
                         </div>
-                        <button class="button">Buy a ticket</button>
+                        <button class="button buy" id="buy4">Buy a ticket</button>
                     </header>
                 </article>
             </div>

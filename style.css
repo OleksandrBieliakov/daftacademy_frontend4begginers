@@ -112,6 +112,10 @@ GŁÓWNY LAYOUT STRONY
     left: 50px;
 }
 
+.hamburger{
+    display: none;
+}
+
 .page-footer {
     position: fixed;
     bottom: 50px;
@@ -282,6 +286,17 @@ SEKCJA "CONCERTS"
     letter-spacing: 3.8px;
 }
 
+.bought {
+    display: none;
+}
+
+.have-fun {
+    color: #EF008E;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 /*
 ######################################
 SEKCJA "VIDEO"
@@ -394,12 +409,45 @@ SEKCJA "CONTACT"
     */
 
     .page-header {
-        position: static;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .hamburger {
+        display: inline;
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 20px;
+        z-index: 2;
+        background-color:rgba(0, 0, 0, 0);
+        border: none;
+    }
+
+    .hamburger:focus{
+        outline: none;
+    }
+
+    .hamburger__line {
+        width: 28px;
+        height: 3px;
+        background-color: #EF008E;
+        margin-bottom: 6px;
+    }
+
+    .page-header__menu {
+        display: none;
+    }
+
+    .page-header__menu-on {
+        background: rgba(37, 7, 46, 0.95);
+        min-width: 100vw;
+        min-height: 100vh;
+        padding-top: 100px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 64px;
-        padding: 24px 24px 0;
     }
 
     .page-footer {
@@ -408,6 +456,7 @@ SEKCJA "CONTACT"
     }
 
     .page-content {
+        margin-top: 40px;
         margin-left: 0;
         padding: 0 24px;
     }
