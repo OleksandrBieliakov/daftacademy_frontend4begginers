@@ -6,15 +6,22 @@ hamburger.addEventListener('click', () => {
 });
 
 
-
-const buy = document.querySelectorArr('.buy');
+const buy = document.querySelectorAll('.buy');
 buy.forEach(element => {
     element.addEventListener('click', () => {
-        haveFun = document.createElement('p');
+        let haveFun = document.createElement('p');
         haveFun.textContent = 'Have fun!';
         haveFun.classList.add('have-fun');
-        concert = element.parentNode;
+        let concert = element.parentNode;
         concert.insertBefore(haveFun, element);
         element.classList.add('bought');
     });
 });
+
+
+const contactButton = document.querySelector('.button--contact');
+const contactForm = document.querySelector('.contact__form'); 
+contactButton.addEventListener('click', () => {
+    let formData = new FormData(contactForm);
+    console.log(Object.fromEntries(formData));
+})
