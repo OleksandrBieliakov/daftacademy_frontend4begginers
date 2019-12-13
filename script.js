@@ -1,4 +1,3 @@
-// Show/hide page navigation
 const hamburger = document.querySelector('#hamburger');
 const menu = document.querySelector('#menu');
 
@@ -7,27 +6,22 @@ hamburger.addEventListener('click', () => {
 });
 
 
-// Mark ticket as bought
-const concerts = document.querySelector('#concerts');
-
-concerts.addEventListener('click', (e) => {
-    if (e.target.classList.contains('button--buy-ticket')) {
-        const buyTicketButton = e.target;
-        const haveFunText = document.createElement('p');
-        haveFunText.textContent = 'Have fun!';
-        haveFunText.classList.add('have-fun');
-        buyTicketButton.replaceWith(haveFunText);
-    }
+const buy = document.querySelectorAll('.buy');
+buy.forEach(element => {
+    element.addEventListener('click', () => {
+        let haveFun = document.createElement('p');
+        haveFun.textContent = 'Have fun!';
+        haveFun.classList.add('have-fun');
+        let concert = element.parentNode;
+        concert.insertBefore(haveFun, element);
+        element.classList.add('bought');
+    });
 });
 
 
-// Log form data
-const contactForm = document.querySelector('.contact__form');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const formObject = Object.fromEntries(formData);
-    console.log(formObject);
-});
-
+const contactButton = document.querySelector('.button--contact');
+const contactForm = document.querySelector('.contact__form'); 
+contactButton.addEventListener('click', () => {
+    let formData = new FormData(contactForm);
+    console.log(Object.fromEntries(formData));
+})
