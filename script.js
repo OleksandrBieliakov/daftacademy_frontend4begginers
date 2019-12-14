@@ -4,6 +4,7 @@ const menu = document.querySelector('#menu');
 
 hamburger.addEventListener('click', () => {
   menu.classList.toggle('page-header__menu-on');
+  hamburger.classList.toggle('hamburger-on');
 });
 
 

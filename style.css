@@ -69,6 +69,11 @@ PRZYCISKI
     text-transform: uppercase;
     letter-spacing: 1.6px;
     cursor: pointer;
+    filter: brightness(0.7);
+}
+
+button:hover {
+    filter: none;
 }
 
 .button--contact {
@@ -83,6 +88,10 @@ FORMULARZE
 
 .form__field {
     margin-bottom: 10px;
+}
+
+.form__field:hover {
+    filter: brightness(1.3);
 }
 
 .form__label {
@@ -137,10 +146,18 @@ NAWIGACJA
     padding-top: 15px;
 }
 
+
+
 .page-navigation__link {
     line-height: 30px;
     text-transform: uppercase;
     letter-spacing: 6.7px;
+    font-weight: bold;
+    filter: brightness(0.6);
+}
+
+.page-navigation__link:hover {
+    filter: brightness(1);
 }
 
 /*
@@ -157,6 +174,14 @@ LINKI DO SOCIAL MEDIA
 .social-links__img {
     width: 20px;
     height: 20px;
+}
+
+.social-links__img {
+    filter: brightness(0.6);
+}
+
+.social-links__img:hover {
+    filter: none;
 }
 
 /*
@@ -197,15 +222,42 @@ SEKCJA "HOME"
 }
 
 .band-members {
+    padding-top: 70px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
+.band-members__name {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    font-weight: bold;
+}
+
+.band-members__desc {
+    opacity: 0.6;
+    letter-spacing: 1.5px;
+}
+
 .band-members__name,
 .band-members__desc {
-    display: none;
+    visibility: hidden;
 }
+
+.band-members__item:hover > .band-members__name, 
+.band-members__item:hover > .band-members__desc {
+    visibility: visible;
+}
+
+.band-members__image {
+    filter: brightness(0.6);
+}
+
+.band-members__item:hover > .band-members__image {
+    filter: none;
+}
+
 
 /*
 ######################################
@@ -256,9 +308,28 @@ SEKCJA "CONCERTS"
     row-gap: 45px;
 }
 
+.concerts__item:hover button {
+    filter: none;
+}
+
+.concerts__image__container {
+    min-width: 100%;
+    overflow: hidden;
+    border-bottom: 3px solid #EF008E;
+}
+
 .concerts__image {
     width: 100%;
-    border-bottom: 3px solid #EF008E;
+    transition: 0.6s;
+    transform-origin: 50% 10%;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.concerts__item:hover .concerts__image {
+    transform: scale(1.3);
 }
 
 .concerts__info {
@@ -329,6 +400,10 @@ SEKCJA "PHOTOS"
 .gallery__image {
     width: 100%;
     border-top: 3px solid #EF008E;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    filter: grayscale(60%);
 }
 
 @supports (display: grid) {
@@ -344,6 +419,28 @@ SEKCJA "PHOTOS"
         width: 100%;
         margin: 0;
     }
+}
+
+@keyframes image-animation {
+    0% { 
+        transform: scale(1);
+        filter: grayscale(60%);
+        border-top: 3px solid #EF008E;
+    }
+    50% {
+        transform: scale(1.1);
+        filter: grayscale(60%);
+        border-top: 0px;
+    }
+    100% {
+        transform: scale(1.1);
+        filter: grayscale(0%);
+        border-top: 0px;
+    }
+}
+
+.gallery__image:hover {
+    animation-name: image-animation;
 }
 
 /*
@@ -414,8 +511,30 @@ SEKCJA "CONTACT"
         z-index: 1;
     }
 
+    .page-footer {
+        position: static;
+        padding: 24px;
+    }
+
+    .page-content {
+        margin-left: 0;
+        padding: 0 24px;
+    }
+
+    .page-navigation__items {
+        text-align: center;
+    }
+
+    /*
+    ######################################
+    NAWIGACJA
+    ######################################
+    */
+
     .hamburger {
-        display: inline;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: fixed;
         top: 0;
         right: 0;
@@ -434,13 +553,31 @@ SEKCJA "CONTACT"
         height: 3px;
         background-color: #EF008E;
         margin-bottom: 6px;
+        transition: 0.4s;
+    }
+
+    .hamburger__top {
+        transform-origin: 100% 50%;
+    }
+
+    .hamburger__bot {
+        transform-origin: 100% 50%;
+    }
+
+    .hamburger-on .hamburger__top {
+        transform: rotate(-40deg);
+    }
+
+    .hamburger-on .hamburger__mid {
+        width: 0px;
+    }
+
+    .hamburger-on .hamburger__bot {
+        transform: rotate(40deg);
     }
 
     .page-header__menu {
-        display: none;
-    }
-
-    .page-header__menu-on {
+        position: absolute;
         background: rgba(37, 7, 46, 0.95);
         min-width: 100vw;
         min-height: 100vh;
@@ -448,27 +585,16 @@ SEKCJA "CONTACT"
         display: flex;
         flex-direction: column;
         align-items: center;
+        transform: translateX(100%);
+        transition: 0.4s;
     }
 
-    .page-footer {
-        position: static;
-        padding: 24px;
+    .page-header__menu-on {
+        transform: translateX(0);
     }
 
-    .page-content {
-        margin-top: 40px;
-        margin-left: 0;
-        padding: 0 24px;
-    }
-
-    /*
-    ######################################
-    NAWIGACJA
-    ######################################
-    */
-
-    .page-navigation__items {
-        text-align: center;
+    .page-navigation__link {
+        filter: none;
     }
 
     /*
@@ -488,6 +614,7 @@ SEKCJA "CONTACT"
     .social-links__img {
         width: 32px;
         height: 32px;
+        filter: none;
     }
 
     /*
@@ -515,11 +642,15 @@ SEKCJA "CONTACT"
     SEKCJA "HOME"
     ######################################
     */
+    .home-section {
+        min-height: 100vh;
+    }
 
     .band-members {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 24px 12px;
+        padding-top: 0px;
     }
 
     .band-members__item {
@@ -536,8 +667,13 @@ SEKCJA "CONTACT"
         object-fit: contain;
     }
 
+    .band-members__image {
+        filter: none;
+    }
+
     .band-members__name,
     .band-members__desc {
+        visibility: visible;
         display: block;
         margin: 0;
         text-align: center;
@@ -620,6 +756,10 @@ SEKCJA "CONTACT"
 
     .gallery__item {
         margin-bottom: 12px;
+    }
+
+    .gallery__image {
+        filter: none;
     }
 
     @supports (display: grid) {
